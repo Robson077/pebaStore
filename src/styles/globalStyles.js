@@ -8,5 +8,4 @@ export default createGlobalStyle`
         outline : none;
         text-decoration: none;
     }
-
 `
