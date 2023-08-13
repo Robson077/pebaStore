@@ -1,5 +1,5 @@
 import { Logo, Button, Container, ContainerSec, ContainerTitle, ContainerFoto } from "./styles";
-import {BsArrowRight} from "react-icons/Bs"
+import { BsArrowRight } from "react-icons/bs"
 import { Link } from "react-router-dom"
 
 import fotoHome from "../../assets/fotoHome.jpg"

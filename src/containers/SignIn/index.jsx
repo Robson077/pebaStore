@@ -1,6 +1,6 @@
 import { Container, Title, Form, LabelEmail, InputEmail, LabelSenha, InputSenha, Redes, Button, Direcionamentos, SignUp } from "./styles"
 
-import { BsFacebook, BsInstagram, BsArrowLeft, BsArrowRight } from "react-icons/Bs"
+import { BsFacebook, BsInstagram, BsArrowLeft, BsArrowRight } from "react-icons/bs"
 
 import { Link } from "react-router-dom"
 
