@@ -62,6 +62,7 @@ export const Button = styled.button`
     border-radius: 50%;
     border: none;
     float: right;
+    color: #fff;
 `
 
 export const Direcionamentos = styled.div`
