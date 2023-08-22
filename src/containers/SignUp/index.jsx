@@ -2,28 +2,31 @@ import { Container, Title, Form, LabelEmail, InputEmail, LabelSenha, InputSenha,
 
 import { BsFacebook, BsInstagram, BsArrowLeft, BsArrowRight } from "react-icons/bs"
 
-import { Link } from "react-router-dom"
-// import { useHistory } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+
 
 import { auth } from "../../firebase/config"
-import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "firebase/auth"
+import { createUserWithEmailAndPassword} from "firebase/auth"
 
 import { useState } from "react"
 
 function SignUp() {
-    // const history = useHistory()
+    const navigate = useNavigate()
+
     const user = auth.currentUser
     console.log(user)
 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
+    
 
-    const handleLogin = async() => {
+    const handleCreateUser = async() => {
         try {
             if(email.length && senha.length > 0) {
                 await createUserWithEmailAndPassword(auth, email, senha)
-                // history.push("/Content")
+                // history.push("/SignIn")
                 console.log("Usuario criado")
+                navigate("/Content")
                 // redirect("/Content")
             } else {
                 alert("Digite seu email e senha")
@@ -33,26 +36,7 @@ function SignUp() {
             console.error("Erro de login:", error)
         }
     }
-
-    const handleSignOut = async() => {
-        try {
-            await signOut(auth)
-            console.log("deslogou")
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
-    const handleSignIn = async() => {
-        try {
-            const userCredetial = await signInWithEmailAndPassword(auth, email, senha)
-            const user = userCredetial.user
-            console.log(user)
-            console.log("logou")
-        } catch (error) {
-            console.error(error)
-        }
-    }
+    
 
     return (
         <Container>
@@ -87,9 +71,8 @@ function SignUp() {
             </Redes>
 
             <Direcionamentos>
-                <Button onClick={handleLogin}><BsArrowRight size={35} color="#fff"/></Button>
-                <Button onClick={handleSignOut}>LogOut</Button>
-                <Button onClick={handleSignIn}>SignIn</Button>
+                <Button onClick={handleCreateUser}><BsArrowRight size={35} color="#fff"/></Button>
+                {/* <Button onClick={handleSignOut}>LogOut</Button> */}
             </Direcionamentos>
         </Container>
     )

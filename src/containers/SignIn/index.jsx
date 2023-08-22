@@ -2,27 +2,36 @@ import { Container, Title, Form, LabelEmail, InputEmail, LabelSenha, InputSenha,
 
 import { BsFacebook, BsInstagram, BsArrowLeft, BsArrowRight } from "react-icons/bs"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
-// import { auth } from "../../firebase/config"
-// import { createUserWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../../firebase/config"
+import { signInWithEmailAndPassword } from "firebase/auth"
 
-// import { useState } from "react"
+import { useState } from "react"
 
 function SignIn() {
+    const navigate = useNavigate()
 
-    // const [email, setEmail] = useState("")
-    // const [senha, setSenha] = useState("")
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
 
-    // const handleLogin = async() => {
-    //     try {
-    //         await createUserWithEmailAndPassword(auth, email, senha)
-    //         console.log("login secesso")
-
-    //     } catch (error) {
-    //         console.error("Erro de login:", error)
-    //     }
-    // }
+    const handleSignIn = async() => {
+        try {
+            if(email.length && senha.length) {
+                const userCredetial = await signInWithEmailAndPassword(auth, email, senha)
+                const user = userCredetial.user
+                
+                console.log(user)
+                console.log("logou")
+                navigate("/Content")
+            } else {
+                alert("Digite email e senha")
+            }
+        } catch (error) {
+            alert("Email ou Senha estão incorretos")
+            console.error("teste", error)
+        }
+    }
 
     return (
         <Container>
@@ -36,9 +45,9 @@ function SignIn() {
                     <InputEmail 
                         type="email" 
                         placeholder="Digite seu email..." 
-                        // value={email} 
-                        // onChange={(e) => setEmail(e.target.value)}
-                        />
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                 </LabelEmail>
 
                 <LabelSenha>
@@ -46,9 +55,9 @@ function SignIn() {
                     <InputSenha 
                         type="password" 
                         placeholder="Digite sua senha..."
-                        // value={senha} 
-                        // onChange={(e) => setSenha(e.target.value)}
-                        />
+                        value={senha} 
+                        onChange={(e) => setSenha(e.target.value)}
+                    />
                 </LabelSenha>
 
                 <Link to="/RecuperarSenha">Esqueceu a senha?</Link>
@@ -61,7 +70,7 @@ function SignIn() {
 
             <Direcionamentos>
                 <Link to="/SignUp"><SignUp>Sign Up</SignUp></Link>
-                <Button><BsArrowRight size={35} color="#fff"/></Button>
+                <Button onClick={handleSignIn}><BsArrowRight size={35} color="#fff"/></Button>
             </Direcionamentos>
         </Container>
     )
