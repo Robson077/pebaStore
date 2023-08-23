@@ -5,8 +5,8 @@ import { BsFacebook, BsGoogle, BsArrowLeft, BsArrowRight } from "react-icons/bs"
 import { Link, useNavigate } from "react-router-dom"
 
 
-import { auth, provider } from "../../services/firebase-config"
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth"
+import { auth, provider, providerFace } from "../../services/firebase-config"
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider} from "firebase/auth"
 
 import { useState } from "react"
 
@@ -52,6 +52,22 @@ function SignUp() {
             console.error(error)
         }
     }
+
+    const handleSignWithFacebook = async() => {
+        try {
+            const result = await signInWithPopup(auth, providerFace)
+
+            const credential = FacebookAuthProvider.credentialFromResult(result)
+            const token = credential.accessToken
+
+            const user = result.user
+            console.log(token)
+            console.log(user)
+            navigate("/Content")
+        } catch (error) {
+            console.error(error)
+        }
+    }
     
 
     return (
@@ -82,7 +98,7 @@ function SignUp() {
             </Form>
 
             <Redes>
-                <BsFacebook size={60}/>
+                <BsFacebook size={60} onClick={handleSignWithFacebook} />
                 <BsGoogle size={60} onClick={handleSignWithGoogle} />
             </Redes>
 
