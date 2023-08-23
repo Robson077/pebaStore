@@ -1,12 +1,12 @@
 import { Container, Title, Form, LabelEmail, InputEmail, LabelSenha, InputSenha, Redes, Button, Direcionamentos, } from "./styles"
 
-import { BsFacebook, BsInstagram, BsArrowLeft, BsArrowRight } from "react-icons/bs"
+import { BsFacebook, BsGoogle, BsArrowLeft, BsArrowRight } from "react-icons/bs"
 
 import { Link, useNavigate } from "react-router-dom"
 
 
-import { auth } from "../../firebase/config"
-import { createUserWithEmailAndPassword} from "firebase/auth"
+import { auth, provider } from "../../services/firebase-config"
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth"
 
 import { useState } from "react"
 
@@ -34,6 +34,22 @@ function SignUp() {
             
         } catch (error) {
             console.error("Erro de login:", error)
+        }
+    }
+
+    const handleSignWithGoogle = async() => {
+        try {
+            const result = await signInWithPopup(auth, provider)
+
+            const credential = GoogleAuthProvider.credentialFromResult(result)
+            const token = credential.accessToken
+
+            const user = result.user
+            console.log(token)
+            console.log(user)
+            navigate("/Content")
+        } catch (error) {
+            console.error(error)
         }
     }
     
@@ -67,7 +83,7 @@ function SignUp() {
 
             <Redes>
                 <BsFacebook size={60}/>
-                <BsInstagram size={60}/>
+                <BsGoogle size={60} onClick={handleSignWithGoogle} />
             </Redes>
 
             <Direcionamentos>
