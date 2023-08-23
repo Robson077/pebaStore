@@ -2,9 +2,14 @@ import { Logo, Button, Container, ContainerSec, ContainerTitle, ContainerFoto } 
 import { BsArrowRight } from "react-icons/bs"
 import { Link } from "react-router-dom"
 
+import { auth } from "../../services/firebase-config"
+
 import fotoHome from "../../assets/fotoHome.jpg"
 
 function Home() {
+    const user = auth.currentUser
+    console.log(user)
+
     return (
         <Container>
             <header>
