@@ -2,31 +2,27 @@ import { Logo, Button, Container, ContainerSec, ContainerTitle, ContainerFoto } 
 import { BsArrowRight } from "react-icons/bs"
 import { Link } from "react-router-dom"
 
-import { auth } from "../../services/firebase-config"
+// import { auth } from "../../services/firebase-config"
 
-import fotoHome from "../../assets/fotoHome.jpg"
+import fotoBack from "../../assets/fotoBack.jpg"
 
 function Home() {
-    const user = auth.currentUser
-    console.log(user)
 
     return (
         <Container>
-            <header>
-                <Logo>Peba Store</Logo>
-            </header>
+            <ContainerFoto img={fotoBack}>
+                <header>
+                    <Logo>Peba <span>Store</span></Logo>
+                </header>
 
-            <ContainerSec>
-                <ContainerTitle>
-                    <h2>Bem vindo ao Peba Store</h2>
-                </ContainerTitle>
+                        <ContainerSec>
+                                <ContainerTitle>
+                                    <h2>Bem vindo ao Peba <span>Store</span></h2>
+                                </ContainerTitle>
 
-                <Button><Link to="/SignIn"><BsArrowRight size={35} color="#fff"/></Link></Button>
-
-                <ContainerFoto>
-                    <img src={fotoHome} />
-                </ContainerFoto>
-            </ContainerSec>
+                                <Button><Link to="/SignIn"><BsArrowRight size={35} color="#fff"/></Link></Button>
+                        </ContainerSec>
+            </ContainerFoto>
         </Container>
     )
 }

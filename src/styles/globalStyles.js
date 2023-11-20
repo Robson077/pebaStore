@@ -7,5 +7,7 @@ export default createGlobalStyle`
         box-sizing: border-box;
         outline : none;
         text-decoration: none;
+        /* font-family: 'Roboto', sans-serif; */
+        font-family: 'Glass Antiqua', cursive;
     }
 `

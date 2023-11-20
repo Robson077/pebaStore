@@ -6,9 +6,13 @@ export const Container = styled.div`
 `
 
 export const Logo = styled.h1`
-    font-family: 'Roboto', sans-serif;
-    font-size: 30px;
-    padding: 10px;
+    font-size: 40px;
+    font-weight: 900;
+    padding: 15px;
+
+    span {
+        color: #48D1CC;
+    }
 `
 export const ContainerSec = styled.section``
 
@@ -16,17 +20,22 @@ export const ContainerTitle = styled.div`
     width: 60%;
 
     h2 {
-        font-family: 'Roboto', sans-serif;
-        font-size: 27px;
-        padding: 20px;
-        font-weight: 400;
+        font-size: 37px;
+        padding: 23px;
+        font-weight: 500;
+    }
+
+    span {
+        color: #48D1CC;
+        font-weight: 700;
     }
 `
 
 export const ContainerFoto = styled.div`
-    margin-top: 100px;
-    width: 100%;
     
+    background-image: url(${(props) => props.img});
+    background-size: cover;
+    height: 100vh;
 
     img {
         width: 100%;

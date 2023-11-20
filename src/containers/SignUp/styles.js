@@ -7,7 +7,6 @@ export const Container = styled.div`
 `
 
 export const Title = styled.h1`
-    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     padding: 20px;
 `
@@ -19,7 +18,6 @@ export const Form = styled.form`
 `
 
 export const LabelEmail = styled.label`
-    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 25px;
     display: flex;
@@ -32,7 +30,6 @@ export const InputEmail = styled.input`
 `
 
 export const LabelSenha = styled.label`
-    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 25px;
     margin-top: 40px;
@@ -73,7 +70,6 @@ export const Direcionamentos = styled.div`
 `
 
 export const SignUp = styled.p`
-    font-family: 'Roboto', sans-serif;
     color: #000;
     font-size: 20px;
 `
