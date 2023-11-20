@@ -11,7 +11,7 @@ export const Logo = styled.h1`
     padding: 15px;
 
     span {
-        color: #48D1CC;
+        color: #000080;
     }
 `
 export const ContainerSec = styled.section``
