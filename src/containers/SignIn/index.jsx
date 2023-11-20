@@ -1,4 +1,4 @@
-import { Container, Title, Form, LabelEmail, InputEmail, LabelSenha, InputSenha, Redes, Button, Direcionamentos, SignUp } from "./styles"
+import { Container, Title, Form, LabelEmail, InputEmail, LabelSenha, InputSenha, Redes, Button, Direcionamentos, SignUp, ContainerFoto } from "./styles"
 
 import { BsFacebook, BsGoogle, BsArrowLeft, BsArrowRight } from "react-icons/bs"
 
@@ -8,6 +8,8 @@ import { auth, provider, providerFace } from "../../services/firebase-config"
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth"
 
 import { useState } from "react"
+
+import fotoBack from "../../assets/bela-praia.jpg"
 
 function SignIn() {
     const navigate = useNavigate()
@@ -66,45 +68,48 @@ function SignIn() {
     }
 
     return (
-        <Container>
-            <Link to="/"><BsArrowLeft size={35} color="#000"/></Link>
+        <ContainerFoto img={fotoBack}>
+            <Container>
+                <Link to="/"><BsArrowLeft size={35} color="#000"/></Link>
 
-            <Title>Sign In</Title>
+                <Title>Sign In</Title>
 
-            <Form>
-                <LabelEmail>
-                Email
-                    <InputEmail 
-                        type="email" 
-                        placeholder="Digite seu email..." 
-                        value={email} 
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </LabelEmail>
+                <Form>
+                    <LabelEmail>
+                    Email
+                        <InputEmail 
+                            type="email" 
+                            placeholder="Digite seu email..." 
+                            value={email} 
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </LabelEmail>
 
-                <LabelSenha>
-                    Senha
-                    <InputSenha 
-                        type="password" 
-                        placeholder="Digite sua senha..."
-                        value={senha} 
-                        onChange={(e) => setSenha(e.target.value)}
-                    />
-                </LabelSenha>
+                    <LabelSenha>
+                        Senha
+                        <InputSenha 
+                            type="password" 
+                            placeholder="Digite sua senha..."
+                            value={senha} 
+                            onChange={(e) => setSenha(e.target.value)}
+                        />
+                    </LabelSenha>
 
-                <Link to="/">Esqueceu a senha?</Link>
-            </Form>
+                    <Link to="/">Esqueceu a senha?</Link>
+                </Form>
 
-            <Redes>
-                <BsFacebook size={60} onClick={handleSignWithFacebook} />
-                <BsGoogle size={60} onClick={handleSignWithGoogle}/>
-            </Redes>
+                <Redes>
+                    <BsFacebook size={60} onClick={handleSignWithFacebook} />
+                    <BsGoogle size={60} onClick={handleSignWithGoogle}/>
+                </Redes>
 
-            <Direcionamentos>
-                <Link to="/SignUp"><SignUp>Sign Up</SignUp></Link>
-                <Button onClick={handleSignIn}><BsArrowRight size={35} color="#fff"/></Button>
-            </Direcionamentos>
-        </Container>
+                <Direcionamentos>
+                    <Link to="/SignUp"><SignUp>Sign Up</SignUp></Link>
+                    <Button onClick={handleSignIn}><BsArrowRight size={35} color="#fff"/></Button>
+                </Direcionamentos>
+            
+            </Container>
+        </ContainerFoto>
     )
 }
 

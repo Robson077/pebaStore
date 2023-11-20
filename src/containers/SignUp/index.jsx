@@ -1,4 +1,4 @@
-import { Container, Title, Form, LabelEmail, InputEmail, LabelSenha, InputSenha, Redes, Button, Direcionamentos, } from "./styles"
+import { Container, Title, Form, LabelEmail, InputEmail, LabelSenha, InputSenha, Redes, Button, Direcionamentos, ContainerFoto } from "./styles"
 
 import { BsFacebook, BsGoogle, BsArrowLeft, BsArrowRight } from "react-icons/bs"
 
@@ -9,6 +9,8 @@ import { auth, provider, providerFace } from "../../services/firebase-config"
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider} from "firebase/auth"
 
 import { useState } from "react"
+
+import fotoBack from "../../assets/bela-praia.jpg"
 
 function SignUp() {
     const navigate = useNavigate()
@@ -71,7 +73,8 @@ function SignUp() {
     
 
     return (
-        <Container>
+        <ContainerFoto img={fotoBack}>
+            <Container>
             <Link to="/SignIn"><BsArrowLeft size={35} color="#000"/></Link>
 
             <Title>Sign Up</Title>
@@ -107,6 +110,8 @@ function SignUp() {
                 {/* <Button onClick={handleSignOut}>LogOut</Button> */}
             </Direcionamentos>
         </Container>
+        </ContainerFoto>
+        
     )
 }
 

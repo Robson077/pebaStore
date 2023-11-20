@@ -73,3 +73,16 @@ export const SignUp = styled.p`
     color: #000;
     font-size: 20px;
 `
+
+export const ContainerFoto = styled.div`
+    
+    background-image: url(${(props) => props.img});
+    background-size: cover;
+    height: 125vh;
+
+    img {
+        width: 100%;
+        height: 58.5vh;
+        margin-bottom: 0;
+    }
+`
