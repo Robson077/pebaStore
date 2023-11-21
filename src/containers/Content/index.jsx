@@ -1,32 +1,50 @@
-import { Button } from "./styles"
 
-import { useNavigate } from "react-router-dom"
+import { Container, Header, Logo, Button, P } from "./styles"
+import { IoIosAdd } from "react-icons/io";
 
-import { auth } from "../../services/firebase-config"
-import { signOut } from "firebase/auth"
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import Card from "../../components/card";
 
 function Content() {
-    const navigate = useNavigate()
-
-    const handleSignOut = async() => {
-        try {
-            await signOut(auth)
-            console.log("deslogou")
-            navigate("/")
-        } catch (error) {
-            console.error(error)
-        }
-    }
-    const user = auth.currentUser
-    console.log(user)
 
     return (
-        <div>
-            <img src={user.photoURL} alt="foto do perfil do google" />
-            <h1>{user.displayName}</h1>
+        <Container>
+            <Header>
+                <Logo>Peba <span>Store</span></Logo>
 
-            <Button onClick={handleSignOut}>LogOut</Button>
-        </div>
+                <Button><IoIosAdd size={25}/></Button>
+            </Header>
+
+            <h2>Top casas para alugar</h2>
+            <Swiper
+                grabCursor={true}
+                spaceBetween={10}
+                slidesPerView={"auto"}
+                className="swiper"
+            >
+            
+                <SwiperSlide><Card /></SwiperSlide>
+                <SwiperSlide><Card /></SwiperSlide>
+                <SwiperSlide><Card /></SwiperSlide>
+                <SwiperSlide><Card /></SwiperSlide>
+
+            </Swiper>
+
+            <Swiper
+                grabCursor={true}
+                spaceBetween={10}
+                slidesPerView={"auto"}
+                className="swiper"
+            >
+            
+                <SwiperSlide><P>Casas</P></SwiperSlide>
+                <SwiperSlide><P>Restaurantes</P></SwiperSlide>
+                <SwiperSlide><P>Supermercados</P></SwiperSlide>
+                <SwiperSlide><P>Pessoas</P></SwiperSlide>
+
+            </Swiper>
+        </Container>
     )
 }
 

@@ -14,6 +14,7 @@ export const Logo = styled.h1`
         color: #000080;
     }
 `
+
 export const ContainerSec = styled.section``
 
 export const ContainerTitle = styled.div`
