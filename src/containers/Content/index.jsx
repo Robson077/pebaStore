@@ -4,7 +4,7 @@ import { IoIosAdd } from "react-icons/io";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Card from "../../components/card";
+import Card from "../../components/Card";
 
 function Content() {
 
