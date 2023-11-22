@@ -54,7 +54,7 @@ function SignIn() {
                 <Direcionamentos>
                     <Link to="/SignUp"><SignUp>Sign Up</SignUp></Link>
                     <Link to="/Content"><Button><BsArrowRight size={35} color="#fff"/></Button></Link>
-                    <Button><BsArrowRight size={35} color="#fff"/></Button>
+                    {/* <Button><BsArrowRight size={35} color="#fff"/></Button> */}
                 </Direcionamentos>
             
             </Container>
