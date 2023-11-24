@@ -13,6 +13,8 @@ export const Container = styled.div`
     .swiper-wrapper {
         display: flex;
         flex-direction: row;
+
+        /* justify-content: space-around; */
     }
 `
 
@@ -45,6 +47,7 @@ export const P = styled.p`
     font-weight: 700;
     border-radius: 5px;
     margin-right: 20px;
+    margin-bottom: 20px;
 
     padding: 5px;
     background-color: #DCDCDC;
