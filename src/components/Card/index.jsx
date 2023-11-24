@@ -1,21 +1,39 @@
-import casa from "../../assets/casa.jpg"
+// import casa from "../../assets/casa.jpg"
 
-import { Container, Stars } from "./styles.js"
+import { Container, Descripion, Stars } from "./styles.js"
 
 import { RiStarSFill } from "react-icons/ri";
 
-function Card() {
+// eslint-disable-next-line react/prop-types
+function Card({ type, img, alugatrue, nomeDono, nomeDonoTrue, aluga, nomeEstabelecimento, nomeEstabelecimentoTrue, stars }) {
     return (
         <Container>
-            <img src={casa}/>
+            <img src={img}/>
+            <Descripion>
 
-            <Stars>
+                { type == "casa" ?
+                    nomeDonoTrue ? <h3>Proprietario: <span>{nomeDono}</span></h3> : "" 
+                    : nomeEstabelecimentoTrue ? <h3>Nome: <span>{nomeEstabelecimento}</span></h3> : ""
+                }
+
+                { alugatrue ?
+                    <p>Para alugar? {
+                        aluga ? "Sim" : "Não"
+                    }
+                </p> : ""
+                }
+
+            </Descripion>
+
+            {
+                stars ? <Stars>
                 <RiStarSFill color="#FFFF00" size={25}/>
                 <RiStarSFill color="#FFFF00" size={25}/>
                 <RiStarSFill color="#FFFF00" size={25}/>
                 <RiStarSFill color="#FFFF00" size={25}/>
                 <RiStarSFill size={25}/>
-            </Stars>
+            </Stars> : ""
+            }
         </Container>
     )
 }

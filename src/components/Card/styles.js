@@ -13,6 +13,32 @@ export const Container = styled.div`
     }
 `
 
+export const Descripion = styled.div`
+    width: 300px;
+    height: 40px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #DCDCDC;
+
+    h3 {
+        font-size: 20px;
+    }
+
+    span {
+        font-weight: 400;
+    }
+
+    p {
+        font-size: 20px;
+        font-weight: 600;
+    }
+`
+
 export const Stars = styled.div`
     display: flex;
     flex-direction: row;
