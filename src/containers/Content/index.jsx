@@ -6,8 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Card from "../../components/Card";
 
-import casa from "../../assets/casa.jpg"
+// import casa from "../../assets/casa.jpg"
 import db from "../../services/db";
+import CardTemp from "../../components/CardTemp";
+// import api from "../../services/api";
 
 function Content() {
 
@@ -24,7 +26,7 @@ function Content() {
     
     const dbMercado = db.filter(info => info.type == "supermercado")
 
-
+    
     return (
         <Container>
             <Header>
@@ -33,8 +35,11 @@ function Content() {
                 <Button><IoIosAdd size={25}/></Button>
             </Header>
 
-            <h2>Top casas para alugar</h2>
-            <Swiper
+            <h2>Clima no Pontal do Peba</h2>
+
+            <CardTemp />
+
+            {/* <Swiper
                 grabCursor={true}
                 spaceBetween={10}
                 slidesPerView={"auto"}
@@ -46,7 +51,9 @@ function Content() {
                 <SwiperSlide><Card img={casa} stars={true}/></SwiperSlide>
                 <SwiperSlide><Card img={casa} stars={true}/></SwiperSlide>
 
-            </Swiper>
+            </Swiper> */}
+
+            
 
             <Swiper
                 grabCursor={true}
