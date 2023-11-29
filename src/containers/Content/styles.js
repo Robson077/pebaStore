@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     overflow: hidden;
+    padding: 10px;
 
     h2 {
         color: #000080;
@@ -46,7 +47,7 @@ export const P = styled.p`
     font-size: 30px;
     font-weight: 700;
     border-radius: 5px;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-bottom: 20px;
 
     padding: 5px;

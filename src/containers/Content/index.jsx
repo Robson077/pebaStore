@@ -12,16 +12,6 @@ import CardTemp from "../../components/CardTemp";
 // import api from "../../services/api";
 
 function Content() {
-
-    function isCasa() {
-        
-        console.log(dbCasa)
-    }
-    
-    function isMercado() {
-        
-        console.log(dbMercado)
-    }
     const dbCasa = db.filter(info => info.type == "casa")
     
     const dbMercado = db.filter(info => info.type == "supermercado")
@@ -38,23 +28,7 @@ function Content() {
             <h2>Clima no Pontal do Peba</h2>
 
             <CardTemp />
-
-            {/* <Swiper
-                grabCursor={true}
-                spaceBetween={10}
-                slidesPerView={"auto"}
-                className="swiper"
-            >
             
-                <SwiperSlide><Card img={casa} stars={true} nomeEstabelecimentoTrue={false}/></SwiperSlide>
-                <SwiperSlide><Card img={casa} stars={true}/></SwiperSlide>
-                <SwiperSlide><Card img={casa} stars={true}/></SwiperSlide>
-                <SwiperSlide><Card img={casa} stars={true}/></SwiperSlide>
-
-            </Swiper> */}
-
-            
-
             <Swiper
                 grabCursor={true}
                 spaceBetween={10}
@@ -62,8 +36,8 @@ function Content() {
                 className="swiper"
             >
             
-                <SwiperSlide><P onClick={isCasa}>Casas</P></SwiperSlide>
-                <SwiperSlide><P onClick={isMercado}>Supermercados</P></SwiperSlide>
+                <SwiperSlide><P>Casas</P></SwiperSlide>
+                <SwiperSlide><P>Supermercados</P></SwiperSlide>
                 <SwiperSlide><P>Restaurantes</P></SwiperSlide>
                 <SwiperSlide><P>Pessoas</P></SwiperSlide>
 
