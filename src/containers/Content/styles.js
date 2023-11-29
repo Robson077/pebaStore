@@ -2,8 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     overflow: hidden;
-    padding: 10px;
-
+    
     h2 {
         color: #000080;
         font-size: 30px;
@@ -16,6 +15,20 @@ export const Container = styled.div`
         flex-direction: row;
 
         /* justify-content: space-around; */
+    }
+`
+
+export const ContainerFoto = styled.div`
+    
+    background-image: url(${(props) => props.img});
+    background-size: cover;
+    padding: 10px;
+    /* height: 100vh; */
+
+    img {
+        width: 100%;
+        height: 100vh;
+        margin-bottom: 0;
     }
 `
 
@@ -52,17 +65,4 @@ export const P = styled.p`
 
     padding: 5px;
     background-color: #DCDCDC;
-`
-
-export const ContainerFoto = styled.div`
-    
-    background-image: url(${(props) => props.img});
-    background-size: cover;
-    height: 100vh;
-
-    img {
-        width: 100%;
-        height: 58.5vh;
-        margin-bottom: 0;
-    }
 `
