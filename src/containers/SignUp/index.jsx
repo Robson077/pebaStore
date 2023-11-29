@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 import { useState } from "react"
 
-import fotoBack from "../../assets/bela-praia.jpg"
+import fotoBack from "../../assets/bela-praia.jpeg"
 
 function SignUp() {
 

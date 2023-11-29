@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Card from "../../components/Card";
 
-import fotoBack from "../../assets/bela-praia.jpg"
+import fotoBack from "../../assets/bela-praia.jpeg"
 
 // import casa from "../../assets/casa.jpg"
 import db from "../../services/db";
