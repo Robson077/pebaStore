@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 // import { auth } from "../../services/firebase-config"
 
-import fotoBack from "../../assets/bela-praia.jpeg"
+import fotoBack from "../../assets/bela-praia.jpg"
 
 function Home() {
 
