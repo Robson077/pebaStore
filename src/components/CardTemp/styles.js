@@ -23,6 +23,8 @@ export const ContainerCard = styled.div`
     width: 95vw;
 
     border-radius: 10px;
+
+    
 `
 
 export const ContainerEsquerdo = styled.div`
