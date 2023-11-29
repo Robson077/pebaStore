@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-import {Container, ContainerMenor} from "./styles.js"
+import { Container, ContainerCard, ContainerEsquerdo, ContainerDeCima, Agora, Temp, ContainerImg, ContainerDireito, ContainerConteudo, EstadoDoTempo, Vento, Umidade} from "./styles.js"
 
 
 function CardTemp() {
@@ -14,26 +14,39 @@ function CardTemp() {
             const response = await axios.get("https://api.openweathermap.org/data/2.5/weather?q=piacabucu&appid=95faddc776e440e02b3289b3942aaea4&lang=pt_br&units=metric")
 
             setApi(response.data)
-            
+            console.log(api)
         }
     
         req()
     }, [])
-    console.log(api)
 
     return(
         <div>
             {
                 api && (
                     <Container>
-                        <p> {Math.floor(api.main.temp)}ºC</p>
+                        <ContainerCard>
+                            <ContainerEsquerdo>
+                                <ContainerDeCima>
+                                    <h1>Tempo</h1>
+                                    <Agora>Agora</Agora>
+                                    <Temp> {Math.floor(api.main.temp)}ºC</Temp>
+                                </ContainerDeCima>
+                            </ContainerEsquerdo>
 
-                        <ContainerMenor>
-                            <p>{api.weather[0].description}</p>
-
-                            <img src={`https://openweathermap.org/img/wn/${api.weather[0].icon}.png`} />
-                        </ContainerMenor>
+                            <ContainerDireito>
+                                <ContainerImg>
+                                    <img src={`https://openweathermap.org/img/wn/${api.weather[0].icon}.png`} />
+                                </ContainerImg>
+                                <ContainerConteudo>
+                                    <EstadoDoTempo>{api.weather[0].description}</EstadoDoTempo>
+                                    <Vento>Vento: {Math.floor(api.wind.gust)}km/h</Vento>
+                                    <Umidade>Umidade: {api.main.humidity}%</Umidade>
+                                </ContainerConteudo>
+                            </ContainerDireito>
+                        </ContainerCard>
                     </Container>
+                    
 
                 )
             }
