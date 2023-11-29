@@ -35,8 +35,6 @@ export const ContainerDeCima = styled.div`
         margin-bottom: 20px;
         font-weight: 700;
 
-        text-align: center;
-
         font-family: 'Roboto', sans-serif;
 
     }
