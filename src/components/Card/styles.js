@@ -22,15 +22,19 @@ export const Descripion = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    gap: 10px;
 
     background-color: #DCDCDC;
 
     h3 {
         font-size: 20px;
+        font-weight: 700;
+        color: #000080;
     }
 
     span {
-        font-weight: 400;
+        font-weight: 700;
+        color: #000000;
     }
 
     p {

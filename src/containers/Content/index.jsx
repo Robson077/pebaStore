@@ -16,12 +16,11 @@ import { useState } from "react";
 
 function Content() {
     const [filtros, setFiltros] = useState([])
-
     
     // const dbMercado = db.filter(info => info.type == "supermercado")
     const dbCasa = db.filter(info => info.type == "casa")
     
-    function isFilter() {
+    function isCasa() {
 
         const dbCasa = db.filter(info => info.type == "casa")
     
@@ -35,6 +34,24 @@ function Content() {
         const dbMercado = db.filter(info => info.type == "supermercado")
 
         setFiltros(dbMercado)
+        console.log(filtros)
+        
+    }
+
+    function isRestaurante() {
+
+        const dbRestaurante = db.filter(info => info.type == "restaurante")
+
+        setFiltros(dbRestaurante)
+        console.log(filtros)
+        
+    }
+
+    function isPessoa() {
+
+        const dbPessoa = db.filter(info => info.type == "pessoa")
+
+        setFiltros(dbPessoa)
         console.log(filtros)
         
     }
@@ -60,10 +77,10 @@ function Content() {
                     className="swiper"
                 >
                 
-                    <SwiperSlide><Filtros onClick={isFilter}>Casas</Filtros></SwiperSlide>
+                    <SwiperSlide><Filtros onClick={isCasa}>Casas</Filtros></SwiperSlide>
                     <SwiperSlide><Filtros onClick={isMercado}>Supermercados</Filtros></SwiperSlide>
-                    <SwiperSlide><Filtros>Restaurantes</Filtros></SwiperSlide>
-                    <SwiperSlide><Filtros>Pessoas</Filtros></SwiperSlide>
+                    <SwiperSlide><Filtros onClick={isRestaurante}>Restaurantes</Filtros></SwiperSlide>
+                    <SwiperSlide><Filtros onClick={isPessoa}>Pessoas</Filtros></SwiperSlide>
 
                 </Swiper>
 
@@ -76,7 +93,14 @@ function Content() {
                 {filtros == "" ? setFiltros(dbCasa) :
                     filtros.map((info, index) => (
                         <SwiperSlide key={index}>
-                            <Card type={info.type} img={info.urlImg} alugatrue={true} nomeDono={info.dono} nomeDonoTrue={true} aluga={info.aluga}/>
+                            <Card 
+                                type={info.type} 
+                                img={info.urlImg} 
+                                nomeDaPessoa={info.nomeDaPessoa}
+                                nomeEstabelecimento={info.nomeEstabelecimento}
+                                // pessoa={info.pessoa}
+                                profissão={info.profissão}
+                            />
                         </SwiperSlide>
                     ))
                 }

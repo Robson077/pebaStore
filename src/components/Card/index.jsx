@@ -5,15 +5,21 @@ import { Container, Descripion, Stars } from "./styles.js"
 import { RiStarSFill } from "react-icons/ri";
 
 // eslint-disable-next-line react/prop-types
-function Card({ type, img, alugatrue, nomeDono, nomeDonoTrue, aluga, nomeEstabelecimento, nomeEstabelecimentoTrue, stars }) {
+function Card({ type, img, alugatrue, aluga, nomeDaPessoa, nomeEstabelecimento, profissão, stars }) {
     return (
         <Container>
             <img src={img}/>
             <Descripion>
 
                 { type == "casa" ?
-                    nomeDonoTrue ? <h3>Proprietario: <span>{nomeDono}</span></h3> : "" 
-                    : nomeEstabelecimentoTrue ? <h3>Nome: <span>{nomeEstabelecimento}</span></h3> : ""
+                    <h3>Proprietario: <span>{nomeDaPessoa}</span></h3> 
+                    : (<h3>Nome: <span>{nomeEstabelecimento} {nomeDaPessoa}</span></h3>)
+                    
+                }
+
+                { type == "pessoa" ?
+                    <h3>Profissão: <span>{profissão}</span></h3> 
+                    : ""
                 }
 
                 { alugatrue ?
