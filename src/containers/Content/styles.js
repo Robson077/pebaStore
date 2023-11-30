@@ -56,7 +56,7 @@ export const Button = styled.button`
     border: none;
 `
 
-export const P = styled.p`
+export const Filtros = styled.p`
     font-size: 30px;
     font-weight: 700;
     border-radius: 5px;

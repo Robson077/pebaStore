@@ -1,5 +1,5 @@
 
-import { Container, ContainerFoto, Header, Logo, Button, P } from "./styles"
+import { Container, ContainerFoto, Header, Logo, Button, Filtros } from "./styles"
 import { IoIosAdd } from "react-icons/io";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,12 +11,33 @@ import fotoBack from "../../assets/bela-praia.jpg"
 // import casa from "../../assets/casa.jpg"
 import db from "../../services/db";
 import CardTemp from "../../components/CardTemp";
+import { useState } from "react";
 // import api from "../../services/api";
 
 function Content() {
+    const [filtros, setFiltros] = useState([])
+
+    
+    // const dbMercado = db.filter(info => info.type == "supermercado")
     const dbCasa = db.filter(info => info.type == "casa")
     
-    const dbMercado = db.filter(info => info.type == "supermercado")
+    function isFilter() {
+
+        const dbCasa = db.filter(info => info.type == "casa")
+    
+        setFiltros(dbCasa)
+        console.log(filtros)
+        
+    }
+
+    function isMercado() {
+
+        const dbMercado = db.filter(info => info.type == "supermercado")
+
+        setFiltros(dbMercado)
+        console.log(filtros)
+        
+    }
 
     
     return (
@@ -39,10 +60,10 @@ function Content() {
                     className="swiper"
                 >
                 
-                    <SwiperSlide><P>Casas</P></SwiperSlide>
-                    <SwiperSlide><P>Supermercados</P></SwiperSlide>
-                    <SwiperSlide><P>Restaurantes</P></SwiperSlide>
-                    <SwiperSlide><P>Pessoas</P></SwiperSlide>
+                    <SwiperSlide><Filtros onClick={isFilter}>Casas</Filtros></SwiperSlide>
+                    <SwiperSlide><Filtros onClick={isMercado}>Supermercados</Filtros></SwiperSlide>
+                    <SwiperSlide><Filtros>Restaurantes</Filtros></SwiperSlide>
+                    <SwiperSlide><Filtros>Pessoas</Filtros></SwiperSlide>
 
                 </Swiper>
 
@@ -52,8 +73,8 @@ function Content() {
                     slidesPerView={"auto"}
                     className="swiper"
                 >
-                {
-                    dbCasa.map((info, index) => (
+                {filtros == "" ? setFiltros(dbCasa) :
+                    filtros.map((info, index) => (
                         <SwiperSlide key={index}>
                             <Card type={info.type} img={info.urlImg} alugatrue={true} nomeDono={info.dono} nomeDonoTrue={true} aluga={info.aluga}/>
                         </SwiperSlide>
@@ -61,23 +82,6 @@ function Content() {
                 }
                 </Swiper>
 
-                <Swiper
-                    grabCursor={true}
-                    spaceBetween={10}
-                    slidesPerView={"auto"}
-                    className="swiper"
-                >
-                    {
-                        // const dbMercado = db.filter(info => info.type == "supermercado")
-                        
-                        dbMercado.map((info, index) => (
-                                <SwiperSlide key={index}>
-                                    <Card img={info.urlImg} nomeEstabelecimento={info.nomeEstabelecimento} nomeEstabelecimentoTrue={true}/>
-                                </SwiperSlide>
-                            )
-                        )
-                    }
-                </Swiper>
             </ContainerFoto>
         </Container>
     )
