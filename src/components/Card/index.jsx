@@ -5,9 +5,9 @@ import { Container, Descripion, Stars } from "./styles.js"
 import { RiStarSFill } from "react-icons/ri";
 
 // eslint-disable-next-line react/prop-types
-function Card({ type, img, alugatrue, aluga, nomeDaPessoa, nomeEstabelecimento, profissão, stars }) {
+function Card({ id, onClick, type, img, alugatrue, aluga, nomeDaPessoa, nomeEstabelecimento, profissão, stars }) {
     return (
-        <Container>
+        <Container onClick={onClick} id={id}>
             <img src={img}/>
             <Descripion>
 
