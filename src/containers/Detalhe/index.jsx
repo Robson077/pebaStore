@@ -1,15 +1,35 @@
-// import db from "../../services/db"
 
-// import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+
+import { useParams } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-function Detalhes({detalheId}) {
-    // const parametros = useParams();
-    console.log(detalheId)
+function Detalhes() {
+
+    const [data, setData] = useState()
+
+    const {id} = useParams();
+
+    useEffect(() => {
+        api.get(`/detalhe/${id}`).then((res) => {
+            console.log(res.data)
+            
+            setData(res.data)
+        })
+        
+    }, [id])
     
     return(
         <div>
-            Detalhe
+            {
+                data && (
+                    <div>
+                        <h1>{data.type}</h1>
+                        <img src={data.urlImg} alt="" width={300} height={400}/>
+                    </div>
+                )
+            }
         </div>
     )
 }

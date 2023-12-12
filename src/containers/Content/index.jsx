@@ -12,16 +12,12 @@ import CardTemp from "../../components/CardTemp";
 import { useEffect, useState } from "react";
 
 import {useNavigate} from "react-router-dom"
-import axios from "axios";
+import api from "../../services/api";
 
 function Content() {
     const [dataBase, setDb] = useState()
     const [filtros, setFiltros] = useState([])
     const navigate = useNavigate()
-
-    const api = axios.create({
-        baseURL: "http://localhost:3000"
-    })
 
     useEffect(() => {
         api.get("/content").then((res) => {
